@@ -1,0 +1,56 @@
+Variables Most Relevant to booking_status:
+Based on their correlations:
+
+lead_time (most important, positive correlation)
+no_of_special_requests (moderate importance, negative correlation)
+repeated_guest (mild importance, negative correlation)
+no_of_previous_bookings_not_canceled (mild importance, negative correlation)
+
+has_special_requests
+
+total_stay
+
+season_* variables
+
+
+
+hot one
+
+type_of_meal_plan
+room_type_reserved
+market_segment_type
+
+
+NEW:
+
+Recommended Feature Set
+Numerical Variables:
+
+lead_time_log (or lead_time)
+avg_price_per_room_log
+no_of_special_requests
+total_stay
+Categorical Variables (Dummies):
+
+room_type_reserved_Room_Type_1
+market_segment_type_Online
+market_segment_type_Offline
+season_Summer
+season_Winter
+Additional Variables (Optional):
+
+repeated_guest: To capture loyalty effects (~-0.12 correlation).
+has_special_requests: For a simplified version of no_of_special_requests.
+
+Next Steps
+Refine Feature Set:
+
+Test the impact of including or excluding marginal variables (e.g., meal_plan_*).
+Use feature selection techniques (e.g., recursive feature elimination, Lasso regression).
+Check for Interaction Effects:
+
+Explore interactions like lead_time × market_segment_type_Online.
+Model Testing:
+
+Build a baseline model (e.g., Logistic Regression or Random Forest) using the selected features.
+Would you like help implementing this feature set or building the model? 🚀
