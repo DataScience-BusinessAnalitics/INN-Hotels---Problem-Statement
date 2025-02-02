@@ -1,0 +1,49 @@
+Based on the VIF analysis, correlation heatmap, and overall feature relevance, here’s a recommended set of variables to use for modeling. These variables strike a balance between independence, relevance, and interpretability.
+
+Recommended Variables
+1️⃣ Key Predictive Features (Strong Relationships with booking_status)
+lead_time_log: High relevance, as it directly impacts booking behavior.
+no_of_special_requests: Indicates engagement or complexity in the booking process, slightly correlated with cancellations (~-0.25).
+avg_price_per_room_std: Standardized price feature, correlated with market segment and behavior.
+
+2️⃣ Guest-Related Features
+repeated_guest: Whether a guest is returning, as loyal customers are less likely to cancel.
+total_guests_centered: Represents total people per booking, now decoupled from other variables.
+
+3️⃣ Historical Booking Behavior
+no_of_previous_cancellations: Indicates a history of cancellations, likely predictive of future cancellations.
+no_of_previous_bookings_not_canceled: Helps balance the cancellation history by showing successful bookings.
+
+4️⃣ Market Segment and Room Type
+market_segment_type_Online: Strong relationship with cancellation patterns, as online bookings tend to have higher cancellation rates.
+room_type_reserved_* (e.g., Room_Type_4, Room_Type_6): Relevant for guest preferences and booking outcomes.
+
+5️⃣ Contextual Features
+total_stay: Captures the length of stay, which may impact booking decisions.
+Season Variables (season_Spring, season_Summer, etc.): Weak correlations, but potentially important for capturing trends.
+
+6️⃣ Optional Features
+required_car_parking_space: While weakly correlated, it may provide additional context if parking needs affect cancellations.
+type_of_meal_plan_*: May capture subtle guest preferences.
+
+Final Feature Set
+Here’s the consolidated list:
+
+lead_time_log
+no_of_special_requests
+avg_price_per_room_std
+repeated_guest
+total_guests_centered
+no_of_previous_cancellations
+no_of_previous_bookings_not_canceled
+market_segment_type_Online
+room_type_reserved_Room_Type_4
+room_type_reserved_Room_Type_6
+total_stay
+season_Spring, season_Summer, season_Winter
+Next Steps
+Use these variables (X) to train a model.
+Evaluate Feature Importance:
+Use a model like Random Forest or Logistic Regression to check which features contribute the most.
+Test Performance:
+Compare model results with and without optional features to confirm their contribution.
